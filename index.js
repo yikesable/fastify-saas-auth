@@ -42,7 +42,6 @@ export const fastifyAclAuthPlugin = fastifyAcl({
     /** @type {string[]} */
     const roles = [];
 
-    // FIXME: Have the Sass Auth Pg plugin do this instead
     const role = request.user?.role;
     // FIXME: Have the organization plugin do this instead
     // const userRoleInOrganization = request.getUserRoleInOrganization && request.getUserRoleInOrganization();
