@@ -29,7 +29,7 @@ TBD
 
 ## Similar modules
 
-* [`@yikesable/fastify-acl`](https://example.com/) – is similar in this way
+* [`@yikesable/fastify-acl`](https://example.com/) – the ACL used by this module
 
 <!--
 ## See also
