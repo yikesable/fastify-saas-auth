@@ -1,6 +1,6 @@
 import chai from 'chai';
 
-import {} from '../index.js';
+import {} from '../lib/fastify-saas-auth.js';
 
 chai.should();
 
