@@ -1,10 +1,12 @@
-# Node Module Template
+# Fastify SaaS Auth
 
-A GitHub template repo for node modules
+Modular Fastify setup for SaaS application's authentication
 
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/voxpelli/eslint-config)
+[![npm version](https://img.shields.io/npm/v/@yikesable/fastify-saas-auth.svg?style=flat)](https://www.npmjs.com/package/@yikesable/fastify-saas-auth)
+[![npm downloads](https://img.shields.io/npm/dm/@yikesable/fastify-saas-auth.svg?style=flat)](https://www.npmjs.com/package/@yikesable/fastify-saas-auth)
 [![Module type: ESM](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/voxpelli/eslint-config)
 [![Follow @voxpelli@mastodon.social](https://img.shields.io/mastodon/follow/109247025527949675?domain=https%3A%2F%2Fmastodon.social&style=social)](https://mastodon.social/@voxpelli)
 
 ## Usage
@@ -12,20 +14,20 @@ A GitHub template repo for node modules
 ### Simple
 
 ```javascript
-import { something } from '@voxpelli/node-module-template';
-
-// Use that something
+import {
+  fastifyAclPlugin,
+  fastifyContext,
+  fastifySaasAuth,
+} from '@yikesable/fastify-saas-auth';
 ```
 
 ## API
 
-### `something(input, { configParam }) => Promise<output>`
-
-Takes a value (`input`), does something configured by the config (`configParam`) and returns the processed value asyncly(`output`)
+TBD
 
 ## Similar modules
 
-* [`example`](https:/example.com/) – is similar in this way
+* [`@yikesable/fastify-acl`](https://example.com/) – is similar in this way
 
 ## See also
 
