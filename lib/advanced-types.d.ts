@@ -14,11 +14,11 @@ interface FastifyUserObject {
   readonly role?: string|undefined,
 }
 
-interface FastifyContextInterface {
-  // Belongs to fastify-context
-  log: FastifyBaseLogger,
-  // Belongs to fastify-user
-  user?: FastifyUserObject,
+declare module '@fastify/request-context' {
+  interface RequestContextData {
+    // Belongs to fastify-user
+    user?: FastifyUserObject,
+  }
 }
 
 declare module 'fastify' {

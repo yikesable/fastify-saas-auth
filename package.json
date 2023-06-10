@@ -45,6 +45,7 @@
     "test": "run-s check test:*"
   },
   "devDependencies": {
+    "@fastify/request-context": "^4.2.0",
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.16.16",
@@ -77,6 +78,12 @@
     "openid-client": "^5.4.2"
   },
   "peerDependencies": {
+    "@fastify/request-context": "^4.2.0",
     "fastify": "^4.17.0"
+  },
+  "peerDependenciesMeta": {
+    "@fastify/request-context": {
+      "optional": true
+    }
   }
 }
