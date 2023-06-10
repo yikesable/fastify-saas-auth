@@ -22,7 +22,6 @@
   "files": [
     "/index.js",
     "/index.d.ts",
-    "/index.d.ts.map",
     "lib/*.js",
     "lib/*.d.ts",
     "lib/*.d.ts.map"
