@@ -1,6 +1,10 @@
 import type { FastifyBaseLogger } from 'fastify';
 
-import type { AddRoleProvider, GetActiveRoles } from './fastify-roles.js';
+import type {
+  AddRoleProvider,
+  GetRoles,
+  HasRole,
+} from './fastify-roles.js';
 
 interface FastifyUserObject {
   // Owned by fastify-user.js
@@ -34,6 +38,7 @@ declare module 'fastify' {
     removeLoggedInUser (): void
 
     // Belongs to fastify-roles
-    getActiveRoles?: GetActiveRoles,
+    getRoles?: GetRoles,
+    hasRole?: HasRole,
   }
 }
