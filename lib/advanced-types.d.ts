@@ -6,7 +6,7 @@ interface FastifyUserObject {
   // Owned by fastify-user.js
   readonly id: string,
   readonly skippedLoading?: boolean,
-  // Owned by fastify-sass-auth.js
+  // Owned by fastify-user-roles.js
   readonly role?: string|undefined,
 }
 
