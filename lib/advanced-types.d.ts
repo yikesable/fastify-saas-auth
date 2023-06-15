@@ -1,5 +1,3 @@
-import type { FastifyBaseLogger } from 'fastify';
-
 import type {
   AddRoleProvider,
   GetRoles,
