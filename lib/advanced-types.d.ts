@@ -6,16 +6,18 @@ import type {
 
 interface FastifyUserObject {
   // Owned by fastify-user.js
-  readonly id: string,
-  readonly skippedLoading?: boolean,
+  id: string,
+  skippedLoading?: boolean,
   // Owned by fastify-user-roles.js
-  readonly role?: string|undefined,
+  role?: string|undefined,
 }
+
+export type FastifyUserData = Omit<FastifyUserObject, 'id' | 'skippedLoading'>;
 
 declare module '@fastify/request-context' {
   interface RequestContextData {
     // Belongs to fastify-user
-    user?: FastifyUserObject,
+    user?: Readonly<FastifyUserObject>,
   }
 }
 
@@ -31,7 +33,7 @@ declare module 'fastify' {
 
   interface FastifyRequest {
     // Belongs to fastify-user
-    readonly user: FastifyUserObject|undefined
+    readonly user: Readonly<FastifyUserObject>|undefined
     setLoggedInUser (userId: string, options?: { skipLoading?: boolean }): Promise<void>
     removeLoggedInUser (): void
 
