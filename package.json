@@ -8,8 +8,9 @@
     "url": "git://github.com/yikesable/fastify-saas-auth.git"
   },
   "keywords": [
-    "fastify",
-    "authentication"
+    "authentication",
+    "fastify-saas-auth",
+    "fastify"
   ],
   "author": "Pelle Wessman <pelle@yikesable.dev> (https://yikesable.dev/)",
   "license": "MIT",
