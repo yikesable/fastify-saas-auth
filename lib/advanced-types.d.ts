@@ -22,7 +22,7 @@ declare module '@fastify/request-context' {
     user?: Readonly<FastifyUserObject>,
 
     // Belongs to fastify-access
-    hasPermission?: HasPermission,
+    hasPermission?: (context: string, operation?: string|undefined) => Promise<boolean>,
   }
 }
 
