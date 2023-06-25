@@ -46,10 +46,3 @@ declare module 'fastify' {
     hasPermission?: HasPermission,
   }
 }
-
-export type AddRoleResult<Roles> = {
-  addRole<Role extends string>(role: Role, ...permissions: string[]): AddRoleResult<Role | Roles>
-  done: () => ({
-    hasPermission<Role extends Roles>(roles: Role[]|Role, permission: string): boolean
-  })
-}
