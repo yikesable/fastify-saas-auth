@@ -1,5 +1,6 @@
-export { default as fastifyAclPlugin } from './lib/fastify-acl.js';
+export { default as fastifyAccessRequiredPlugin } from './lib/fastify-access-required.js';
 export { fastifySaasAuthPlugin } from './lib/fastify-saas-auth.js';
+export { addRole } from './lib/rbac.js';
 
 export type * from './lib/advanced-types.js';
 
@@ -8,10 +9,8 @@ export type {
   SaasAuthCreateUserCallback,
   SaasAuthDb,
   SaasAuthIssuer,
+  SaasAuthLoadUserCallback,
   SaasAuthOptions,
+  SaasAuthPermissionCallback,
   SaasAuthUserinfoResponse,
 } from './lib/fastify-saas-auth.js';
-
-export type {
-  FastifyUserLoadCallback,
-} from './lib/fastify-user.js';

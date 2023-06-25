@@ -1,3 +1,4 @@
+import type { HasPermission } from './fastify-access.js';
 import type {
   AddRoleProvider,
   GetRoles,
@@ -40,5 +41,15 @@ declare module 'fastify' {
     // Belongs to fastify-roles
     getRoles?: GetRoles,
     hasRole?: HasRole,
+
+    // Belongs to fastify-access
+    hasPermission?: HasPermission,
   }
+}
+
+export type AddRoleResult<Roles> = {
+  addRole<Role extends string>(role: Role, ...permissions: string[]): AddRoleResult<Role | Roles>
+  done: () => ({
+    hasPermission<Role extends Roles>(roles: Role[]|Role, permission: string): boolean
+  })
 }
