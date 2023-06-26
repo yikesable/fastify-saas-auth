@@ -1,6 +1,6 @@
 {
   "name": "@yikesable/fastify-saas-auth",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "Modular Fastify setup for SaaS application's authentication",
   "homepage": "http://github.com/yikesable/fastify-saas-auth",
   "repository": {
