@@ -1,4 +1,8 @@
 import type {
+  RequestHasPermission,
+} from './fastify-access.js';
+
+import type {
   AddRoleProvider,
   GetRoles,
   HasRole,
@@ -8,13 +12,12 @@ interface FastifyUserObject {
   // Owned by fastify-user.js
   id: string,
   skippedLoading?: boolean,
+
   // Owned by fastify-user-roles.js
   role?: string|undefined,
 }
 
 export type FastifyUserData = Omit<FastifyUserObject, 'id' | 'skippedLoading'>;
-
-export type HasPermission = (this: import('fastify').FastifyRequest, context: string, operation?: string|undefined) => Promise<boolean>;
 
 declare module '@fastify/request-context' {
   interface RequestContextData {
@@ -22,7 +25,7 @@ declare module '@fastify/request-context' {
     user?: Readonly<FastifyUserObject>,
 
     // Belongs to fastify-access
-    hasPermission?: (context: string, operation?: string|undefined) => Promise<boolean>,
+    hasPermission?: (context: string, operation?: string|undefined) => boolean,
   }
 }
 
@@ -47,6 +50,6 @@ declare module 'fastify' {
     hasRole?: HasRole,
 
     // Belongs to fastify-access
-    hasPermission?: HasPermission,
+    hasPermission?: RequestHasPermission,
   }
 }
