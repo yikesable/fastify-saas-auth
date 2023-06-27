@@ -2,9 +2,9 @@ import type {
   RequestHasPermission,
 } from './fastify-access.js';
 
+// TODO: Remove this convoluted setup for sharing types once https://github.com/fastify/fastify/pull/4858 is merged
 import type {
-  AddRoleProvider,
-  GetRoles,
+  FastifyRoleProvider,
   HasRole,
 } from './fastify-roles.js';
 
@@ -36,7 +36,7 @@ declare module 'fastify' {
     requireUser (redirectTarget?: string): void
 
     // Belongs to fastify-roles
-    addRoleProvider?: AddRoleProvider
+    addRoleProvider?: (provider: FastifyRoleProvider) => void
   }
 
   interface FastifyRequest {
@@ -46,7 +46,7 @@ declare module 'fastify' {
     removeLoggedInUser (): void
 
     // Belongs to fastify-roles
-    getRoles?: GetRoles,
+    getRoles?: () => Set<string>,
     hasRole?: HasRole,
 
     // Belongs to fastify-access
