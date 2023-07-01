@@ -8,6 +8,10 @@ import type {
   HasRole,
 } from './fastify-roles.js';
 
+import type {
+  SESSION_KEY_USER_ID,
+} from './fastify-user.js';
+
 interface FastifyUserObject {
   // Owned by fastify-user.js
   id: string,
@@ -26,6 +30,12 @@ declare module '@fastify/request-context' {
 
     // Belongs to fastify-access
     hasPermission?: (context: string, operation?: string|undefined) => boolean,
+  }
+}
+
+declare module '@fastify/secure-session' {
+  interface SessionData {
+    [SESSION_KEY_USER_ID]: string;
   }
 }
 
