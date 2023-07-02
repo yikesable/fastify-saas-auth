@@ -14,3 +14,7 @@ export type {
   SaasAuthPermissionCallback,
   SaasAuthUserinfoResponse,
 } from './lib/fastify-saas-auth.js';
+
+export type {
+  FastifyRoleProvider,
+} from './lib/fastify-roles.js';
