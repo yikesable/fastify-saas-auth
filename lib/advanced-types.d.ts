@@ -35,9 +35,8 @@ declare module '@fastify/secure-session' {
 
 declare module 'fastify' {
   interface FastifyInstance {
-  // Owned by fastify-user.js
-    // FIXME: Weird value for that name, should rather be something like: noUserRedirect()
-    requireUser (redirectTarget?: string): void
+    // Owned by fastify-user.js
+    requireAuthenticated (condition?: (request: FastifyRequest) => boolean|Promise<boolean>): void
 
     // Belongs to fastify-roles
     addRoleProvider?: (provider: FastifyRoleProvider) => void
