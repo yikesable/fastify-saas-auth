@@ -1,5 +1,11 @@
 {
   "$schema": "https://unpkg.com/knip@2/schema.json",
-  "ignore": ["index.d.ts"],
-  "ignoreDependencies": ["@types/mocha", "mocha", "@fastify/request-context"]
+  "entry": [
+    "index.d.ts",
+    "index.js"
+  ],
+  "ignoreDependencies": [
+    "@fastify/request-context",
+    "@types/mocha"
+  ]
 }
