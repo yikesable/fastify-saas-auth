@@ -36,7 +36,7 @@ declare module '@fastify/secure-session' {
 declare module 'fastify' {
   interface FastifyInstance {
     // Owned by fastify-user.js
-    requireAuthenticated (condition?: (request: FastifyRequest) => boolean|Promise<boolean>): void
+    requireAuthenticated (): void
 
     // Belongs to fastify-roles
     addRoleProvider?: (provider: FastifyRoleProvider) => void
