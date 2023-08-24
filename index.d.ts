@@ -8,7 +8,6 @@ export type {
   SaasAuthAuthenticationCallback,
   SaasAuthCreateUserCallback,
   SaasAuthDb,
-  SaasAuthIssuer,
   SaasAuthLoadUserCallback,
   SaasAuthOptions,
   SaasAuthPermissionCallback,
