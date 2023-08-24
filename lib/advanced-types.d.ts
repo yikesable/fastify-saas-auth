@@ -1,3 +1,4 @@
+import { AnyDeclaration, AnyDeclarationType, ValidDeclaration } from '@voxpelli/type-helpers';
 import type {
   FastifyRoleProvider,
 } from './fastify-roles.js';
@@ -5,6 +6,8 @@ import type {
 import type {
   SESSION_KEY_USER_ID,
 } from './fastify-user.js';
+
+// *** User ***
 
 interface FastifyUserObject {
   // Owned by fastify-user.js
@@ -16,6 +19,33 @@ interface FastifyUserObject {
 }
 
 export type FastifyUserData = Omit<FastifyUserObject, 'id' | 'skippedLoading'>;
+
+// *** Auth ***
+
+export interface SaasAuthIssuer<TypeName extends AnySaasAuthIssuerType> extends ValidDeclaration<TypeName, SaasAuthIssuers> {
+  // Intentionally left empty
+}
+
+export interface SaasAuthIssuerOAuth2<T extends AnySaasAuthIssuerType> extends SaasAuthIssuer<T> {
+  clientId: string,
+  clientSecret: string,
+  scope?: string,
+}
+
+export interface SaasAuthIssuerOpenIdConnect extends SaasAuthIssuerOAuth2<'oidc'> {
+  discoveryUrl: string,
+}
+
+export interface SaasAuthIssuers {
+  // oauth2: SaasAuthIssuerOAuth2<'oauth2'>,
+  oidc: SaasAuthIssuerOpenIdConnect,
+}
+
+export type AnySaasAuthIssuer = AnyDeclaration<SaasAuthIssuers>
+export type AnySaasAuthIssuerType = AnyDeclarationType<SaasAuthIssuers>;
+
+
+// *** Extension of existing interfaces
 
 declare module '@fastify/request-context' {
   interface RequestContextData {
