@@ -2,7 +2,7 @@ export { default as fastifyAccessRequiredPlugin } from './lib/fastify-access-req
 export { fastifySaasAuthPlugin } from './lib/fastify-saas-auth.js';
 export { addRolePermission } from './lib/rbac.js';
 
-export type * from './lib/advanced-types.js';
+export type * from './lib/advanced-types.d.ts';
 
 export type {
   SaasAuthAuthenticationCallback,
