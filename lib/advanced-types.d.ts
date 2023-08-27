@@ -1,11 +1,15 @@
-import { AnyDeclaration, AnyDeclarationType, ValidDeclaration } from '@voxpelli/type-helpers';
-import type {
-  FastifyRoleProvider,
-} from './fastify-roles.js';
+import type { ProviderConfiguration } from '@fastify/oauth2';
+import type { UserinfoResponse } from 'openid-client';
 
 import type {
-  SESSION_KEY_USER_ID,
-} from './fastify-user.js';
+  AnyDeclaration,
+  AnyDeclarationType,
+  MaybePromised,
+  ValidDeclaration,
+} from '@voxpelli/type-helpers';
+
+import type { FastifyRoleProvider } from './fastify-roles.js';
+import type { SESSION_KEY_USER_ID } from './fastify-user.js';
 
 // *** User ***
 
@@ -20,30 +24,75 @@ interface FastifyUserObject {
 
 export type FastifyUserData = Omit<FastifyUserObject, 'id' | 'skippedLoading'>;
 
-// *** Auth ***
+// *** OpenID Client ***
+
+export interface FastifyOpenIdClientOptions extends SaasAuthIssuerPluginOptions, SaasAuthIssuerOpenIdConnect {
+  loadUserInfo?: boolean,
+  sessionKey?: string,
+  usePKCE?: 'plain'|'S256'|true,
+  params?: Omit<import('openid-client').AuthorizationParameters, 'redirect_uri' | 'response_type'>,
+  extras?: import('openid-client').CallbackExtras,
+}
+
+// *** OAuth 2 Client ***
+
+export interface FastifyOAuth2ClientOptions extends SaasAuthIssuerPluginOptions, SaasAuthIssuerOAuth2 {
+}
+
+// ***  SaasAuthIssuerPlugin ***
+
+export interface SaasAuthIssuerUserInfo extends UserinfoResponse {
+}
+
+export type SaasAuthIssuerPluginCallback = (
+  userinfo: SaasAuthIssuerUserInfo | undefined,
+  context: {
+    request: import('fastify').FastifyRequest;
+    name: string;
+  }
+) => MaybePromised<boolean | string | URL | void>;
+
+
+interface SaasAuthIssuerPluginOptions {
+  baseUrl: string
+  callback: SaasAuthIssuerPluginCallback
+  name: string,
+  prefix?: string
+  successRedirect?: string
+  failureRedirect?: string
+}
+
+// *** SaasAuthIssuer ***
+
+export interface SaasAuthIssuerOAuth<T extends AnySaasAuthIssuerType> extends SaasAuthIssuer<T> {
+  clientId: string,
+  clientSecret: string,
+  scope?: string[],
+}
+
+export interface SaasAuthIssuerOAuth2 extends SaasAuthIssuerOAuth<'oauth2'> {
+  auth: ProviderConfiguration
+  customHeaders?: { [header: string]: string },
+  userProfileUrl: string,
+  userProfileParse (userProfile: string): SaasAuthIssuerUserInfo,
+}
+
+export interface SaasAuthIssuerOpenIdConnect extends SaasAuthIssuerOAuth<'oidc'> {
+  discoveryUrl: string,
+}
 
 export interface SaasAuthIssuer<TypeName extends AnySaasAuthIssuerType> extends ValidDeclaration<TypeName, SaasAuthIssuers> {
   // Intentionally left empty
 }
 
-export interface SaasAuthIssuerOAuth2<T extends AnySaasAuthIssuerType> extends SaasAuthIssuer<T> {
-  clientId: string,
-  clientSecret: string,
-  scope?: string,
-}
-
-export interface SaasAuthIssuerOpenIdConnect extends SaasAuthIssuerOAuth2<'oidc'> {
-  discoveryUrl: string,
-}
-
 export interface SaasAuthIssuers {
-  // oauth2: SaasAuthIssuerOAuth2<'oauth2'>,
+  oauth2: SaasAuthIssuerOAuth2,
   oidc: SaasAuthIssuerOpenIdConnect,
+  unknown: SaasAuthIssuer<'unknown'>,
 }
 
 export type AnySaasAuthIssuer = AnyDeclaration<SaasAuthIssuers>
 export type AnySaasAuthIssuerType = AnyDeclarationType<SaasAuthIssuers>;
-
 
 // *** Extension of existing interfaces
 

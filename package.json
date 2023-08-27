@@ -44,7 +44,8 @@
     "prepublishOnly": "run-s build",
     "test:mocha": "c8 --reporter=lcov --reporter text mocha 'test/**/*.spec.js'",
     "test-ci": "run-s test:*",
-    "test": "run-s check test:*"
+    "test": "run-s check test:*",
+    "watch": "nodemon -e js -x 'npm run build' "
   },
   "devDependencies": {
     "@fastify/request-context": "^5.0.0",
@@ -68,16 +69,19 @@
     "fastify": "^4.21.0",
     "husky": "^8.0.3",
     "installed-check": "^8.0.0",
-    "knip": "^2.19.11",
+    "knip": "^2.20.1",
     "mocha": "^10.2.0",
+    "nodemon": "^3.0.1",
     "npm-run-all2": "^6.0.6",
     "type-coverage": "^2.26.0",
     "typescript": "~5.1.6"
   },
   "dependencies": {
+    "@fastify/oauth2": "^7.3.0",
     "@fastify/secure-session": "^6.1.0",
-    "@voxpelli/type-helpers": "^2.0.1",
+    "@voxpelli/type-helpers": "^2.1.0",
     "fastify-plugin": "^4.5.0",
+    "got": "^13.0.0",
     "openid-client": "^5.4.2"
   },
   "peerDependencies": {
