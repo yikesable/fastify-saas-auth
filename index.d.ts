@@ -11,7 +11,6 @@ export type {
   SaasAuthLoadUserCallback,
   SaasAuthOptions,
   SaasAuthPermissionCallback,
-  SaasAuthUserinfoResponse,
 } from './lib/fastify-saas-auth.js';
 
 export type {
