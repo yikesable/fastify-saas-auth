@@ -19,7 +19,7 @@ interface FastifyUserObject {
   skippedLoading?: boolean,
 
   // Owned by fastify-user-roles.js
-  role?: string|undefined,
+  role?: string | undefined,
 }
 
 export type FastifyUserData = Omit<FastifyUserObject, 'id' | 'skippedLoading'>;
@@ -29,7 +29,7 @@ export type FastifyUserData = Omit<FastifyUserObject, 'id' | 'skippedLoading'>;
 export interface FastifyOpenIdClientOptions extends SaasAuthIssuerPluginOptions, SaasAuthIssuerOpenIdConnect {
   loadUserInfo?: boolean,
   sessionKey?: string,
-  usePKCE?: 'plain'|'S256'|true,
+  usePKCE?: 'plain' | 'S256' | true,
   params?: Omit<import('openid-client').AuthorizationParameters, 'redirect_uri' | 'response_type'>,
   extras?: import('openid-client').CallbackExtras,
 }
@@ -51,7 +51,6 @@ export type SaasAuthIssuerPluginCallback = (
     name: string;
   }
 ) => MaybePromised<boolean | string | URL | void>;
-
 
 interface SaasAuthIssuerPluginOptions {
   baseUrl: string
@@ -91,7 +90,7 @@ export interface SaasAuthIssuers {
   unknown: SaasAuthIssuer<'unknown'>,
 }
 
-export type AnySaasAuthIssuer = AnyDeclaration<SaasAuthIssuers>
+export type AnySaasAuthIssuer = AnyDeclaration<SaasAuthIssuers>;
 export type AnySaasAuthIssuerType = AnyDeclarationType<SaasAuthIssuers>;
 
 // *** Extension of existing interfaces
@@ -102,7 +101,7 @@ declare module '@fastify/request-context' {
     user?: Readonly<FastifyUserObject>,
 
     // Belongs to fastify-access
-    hasPermission?: (context: string, operation?: string|undefined) => boolean,
+    hasPermission?: (context: string, operation?: string | undefined) => boolean,
   }
 }
 
@@ -123,7 +122,7 @@ declare module 'fastify' {
 
   interface FastifyRequest {
     // Belongs to fastify-user
-    readonly user: Readonly<FastifyUserObject>|undefined
+    readonly user: Readonly<FastifyUserObject> | undefined
     setLoggedInUser (userId: string, options?: { skipLoading?: boolean }): Promise<void>
     removeLoggedInUser (): void
 
@@ -132,6 +131,6 @@ declare module 'fastify' {
     hasRole?: (wantedRole: ReadonlyArray<string> | string, all?: boolean) => boolean,
 
     // Belongs to fastify-access
-    hasPermission?: (context: string, operation?: string|undefined) => boolean,
+    hasPermission?: (context: string, operation?: string | undefined) => boolean,
   }
 }

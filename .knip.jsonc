@@ -1,11 +1,10 @@
 {
-  "$schema": "https://unpkg.com/knip@2/schema.json",
+  "$schema": "https://unpkg.com/knip@5/schema.json",
   "entry": [
     "index.d.ts",
     "index.js"
   ],
   "ignoreDependencies": [
-    "@fastify/request-context",
-    "@types/mocha"
+    "@fastify/request-context"
   ]
 }
