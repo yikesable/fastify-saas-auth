@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "@fastify/oauth2": "^7.5.0",
-    "@fastify/secure-session": "^7.1.0",
+    "@fastify/secure-session": "^7.3.0",
     "@voxpelli/type-helpers": "^3.0.0",
     "fastify-plugin": "^4.5.0",
     "got": "^13.0.0",
