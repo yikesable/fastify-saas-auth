@@ -30,6 +30,7 @@ export type {
 } from './lib/fastify-saas-auth.js';
 
 export type {
+  FastifyUserObject,
   FastifyUserData,
 } from './lib/fastify-user-types.js';
 

@@ -5,7 +5,7 @@ import type {} from 'fastify';
 
 import type { SESSION_KEY_USER_ID } from './fastify-user.js';
 
-interface FastifyUserObject {
+export interface FastifyUserObject {
   // Owned by fastify-user.js
   id: string,
   skippedLoading?: boolean,
