@@ -1,3 +1,4 @@
+// @ts-ignore
 import type {} from '@fastify/request-context';
 import type { FastifyRequest } from 'fastify';
 

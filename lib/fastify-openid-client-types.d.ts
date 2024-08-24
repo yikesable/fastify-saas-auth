@@ -1,6 +1,10 @@
-import type {} from '@fastify/secure-session';
+import type { SessionData } from '@fastify/secure-session';
 
-import type { AuthorizationParameters, ResponseType } from 'openid-client';
+import type {
+  AuthorizationParameters,
+  CallbackExtras,
+  ResponseType,
+} from 'openid-client';
 
 import type { SESSION_KEY_PREFIX_OPENID } from './fastify-openid-client.d.ts';
 import type { SaasAuthIssuerPluginOptions } from './issuer-plugin-types.d.ts';
@@ -30,10 +34,10 @@ export interface SaasAuthIssuerOpenIdConnect extends SaasAuthIssuerOAuth<'oidc'>
 
 export interface FastifyOpenIdClientOptions extends SaasAuthIssuerPluginOptions, SaasAuthIssuerOpenIdConnect {
   loadUserInfo?: boolean,
-  sessionKey?: KeysOfValue<import('@fastify/secure-session').SessionData, SessionValue>,
+  sessionKey?: KeysOfValue<SessionData, SessionValue>,
   usePKCE?: 'plain' | 'S256' | true,
-  params?: Omit<import('openid-client').AuthorizationParameters, 'redirect_uri' | 'response_type'>,
-  extras?: import('openid-client').CallbackExtras,
+  params?: Omit<AuthorizationParameters, 'redirect_uri' | 'response_type'>,
+  extras?: CallbackExtras,
 }
 
 declare module './issuer-types.d.ts' {

@@ -1,3 +1,4 @@
+// @ts-ignore
 import type {} from '@fastify/request-context';
 import type {} from '@fastify/secure-session';
 import type {} from 'fastify';
