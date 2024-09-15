@@ -51,7 +51,7 @@
     "@fastify/request-context": "^5.1.0",
     "@types/chai": "^4.3.17",
     "@types/mocha": "^10.0.7",
-    "@types/node": "^20.16.1",
+    "@types/node": "^20.16.5",
     "@voxpelli/eslint-config": "^21.0.0",
     "@voxpelli/tsconfig": "^13.0.0",
     "c8": "^10.1.2",
@@ -65,7 +65,7 @@
     "nodemon": "^3.1.4",
     "npm-run-all2": "^6.2.2",
     "type-coverage": "^2.29.1",
-    "typescript": "~5.5.4"
+    "typescript": "~5.6.2"
   },
   "dependencies": {
     "@fastify/oauth2": "^7.5.0",
