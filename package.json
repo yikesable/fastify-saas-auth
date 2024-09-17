@@ -48,7 +48,7 @@
     "watch": "nodemon -e js -x 'npm run build' "
   },
   "devDependencies": {
-    "@fastify/request-context": "^5.1.0",
+    "@fastify/request-context": "^6.0.0",
     "@types/chai": "^4.3.17",
     "@types/mocha": "^10.0.7",
     "@types/node": "^20.16.1",
@@ -57,7 +57,7 @@
     "c8": "^10.1.2",
     "chai": "^4.5.0",
     "eslint": "^9.9.1",
-    "fastify": "^4.28.1",
+    "fastify": "^5.0.0",
     "husky": "^9.1.5",
     "installed-check": "^9.3.0",
     "knip": "^5.27.3",
@@ -68,16 +68,16 @@
     "typescript": "~5.5.4"
   },
   "dependencies": {
-    "@fastify/oauth2": "^7.5.0",
-    "@fastify/secure-session": "^7.5.1",
+    "@fastify/oauth2": "^8.0.0",
+    "@fastify/secure-session": "^8.0.0",
     "@voxpelli/type-helpers": "^3.0.0",
-    "fastify-plugin": "^4.5.0",
+    "fastify-plugin": "^5.0.0",
     "got": "^13.0.0",
     "openid-client": "^5.4.2"
   },
   "peerDependencies": {
-    "@fastify/request-context": "^5.0.0",
-    "fastify": "^4.19.0"
+    "@fastify/request-context": "^6.0.0",
+    "fastify": "^5.0.0"
   },
   "peerDependenciesMeta": {
     "@fastify/request-context": {
