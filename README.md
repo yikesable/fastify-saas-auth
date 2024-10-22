@@ -17,8 +17,9 @@ Modular Fastify setup for SaaS application's authentication
 
 ```javascript
 import {
-  fastifyAclPlugin,
-  fastifySaasAuth,
+  addRolePermission,
+  fastifyAccessRequiredPlugin,
+  fastifySaasAuthPlugin,
 } from '@yikesable/fastify-saas-auth';
 ```
 

@@ -6,5 +6,8 @@
   ],
   "ignoreDependencies": [
     "@fastify/request-context"
+  ],
+  "ignore": [
+    "test-published-types/index.js"
   ]
 }

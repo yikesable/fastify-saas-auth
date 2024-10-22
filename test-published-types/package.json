@@ -1,0 +1,10 @@
+{
+  "name": "@voxpelli/test-published-types",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@yikesable/fastify-saas-auth": "file:..",
+    "fastify": "^5.0.0"
+  }
+}

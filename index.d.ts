@@ -46,3 +46,9 @@ export type {
   SaasAuthIssuerOAuth,
   SaasAuthIssuers,
 } from './lib/issuer-types.d.ts';
+
+export type {
+  PermissionRoleList,
+  PermissionContextOperations,
+  PermissionCrudOperation,
+} from './lib/rbac-types.d.ts';
