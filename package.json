@@ -74,7 +74,7 @@
     "@voxpelli/typed-utils": "^1.10.2",
     "fastify-plugin": "^5.0.0",
     "got": "^13.0.0",
-    "openid-client": "^5.4.2"
+    "openid-client": "^6.0.0"
   },
   "peerDependencies": {
     "@fastify/request-context": "^6.0.0",
